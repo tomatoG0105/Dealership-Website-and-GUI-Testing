@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My App</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+    .image {
+      width: 50%;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .head-name {
+      margin-top: 20px;
+      font-size: 40px;
+      font-family: Century Gothic, sans-serif;
+      color: grey;
+    }
+    .paragraph-name {
+      margin-top: 8px;
+      font-size: 20px;
+      font-family: Arial, sans-serif;
+      color: black;
+    }
+    .explore-btn {
+      padding: 8px 18px;
+      background-color: red;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+    .submit {
+      padding: 6px 12px;
+      background-color: light grey;
+      color: black;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+    body {
+      margin-left: 30px;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="head-name">carshop.com</h1>
+
+  <br>
+  <img class="image" src="main page.jpg" alt="MainImage">
+  <br>
+  <br>
+
+
+  <!-- List -->
+  <h3 class="paragraph-name">Our Services:</h3>
+  <ul>
+    <li>Buy new vehicles</li>
+    <li>Trade your used vehicles</li>
+    <li>Rent before buying</li>
+    <li>Repair and maintenance advice</li>
+  </ul>
+
+  <br><br>
+
+  <!-- Button to navigate to another page -->
+  <button class="explore-btn" onclick="window.location.href='file:///C:/Users/fangj/OneDrive/Study/ASU/CSE-565%20Software%20Verification%20and%20Validation/Project%203/GUI_Testing/Car%20images.html'">Explore our products</button>
+  <br>
+  <br>
+  <br>
+
+
+  <!-- Textboxes for name, email, and cell phone number -->
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+
+  <br><br>
+
+
+  <!-- Radio buttons for gender -->
+  <label for="male">Male</label>
+  <input type="radio" id="male" name="gender" value="male">
+
+  <label for="female">Female</label>
+  <input type="radio" id="female" name="gender" value="female">
+
+  <br><br> 
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email">
+
+  <br><br>
+
+  <label for="phone">Cell Phone:</label>
+  <input type="tel" id="phone" name="phone">
+
+  <br><br>
+
+  <label for="address1">Address1 :</label>
+  <input type="address" id="address1" name="address">
+
+  <br><br>
+
+  <label for="address2">Address2 :</label>
+  <input type="address" id="address2" name="address">
+
+  <br><br>
+
+  <label for="City">City :</label>
+  <input type="city" id="city" name="city">
+
+  <br><br>
+
+  <label for="State">State :</label>
+  <input type="state" id="state" name="state"> 
+
+  <br><br>
+
+  <label for="Zip">Zip :</label>
+  <input type="zip" id="zip" name="zip">
+
+  <br><br>
+
+<!-- Drop-down menu for choosing a car make -->
+  <label for="makes">Please choose a make:</label>
+  <select id="makes" name="makes" onchange="updateModels()">
+    <option value="" disabled selected>Not selected</option>
+    <option value="ford">Ford</option>
+    <option value="honda">Honda</option>
+    <option value="toyota">Toyota</option>
+  </select>
+ 
+  <br><br>
+
+  <!-- Drop-down menu for choosing a car model -->
+  <label for="models">Please choose a model:</label>
+  <select id="models" name="models">
+    <option value="" disabled selected>Select a make first</option>
+  </select>
+
+  <br><br><br>
+
+  <!-- Submit button -->
+  <button class="submit" onclick="submitForm()">Submit</button>
+
+  <br><br><br>
+
+  <!-- Button to navigate to another page -->
+  <button class="feedback" onclick="window.location.href='file:///C:/Users/fangj/OneDrive/Study/ASU/CSE-565%20Software%20Verification%20and%20Validation/Project%203/GUI_Testing/Customer%20Feedback.html'">Customer Feedback</button>
+
+  <script>
+    // Function to update the car model options based on the selected make
+    function updateModels() {
+      var makeSelect = document.getElementById("makes");
+      var modelSelect = document.getElementById("models");
+      var selectedMake = makeSelect.value;
+
+      // Reset the car model options
+      modelSelect.innerHTML = '<option value="" disabled selected>Select a make first</option>';
+
+      // Update the car model options based on the selected make
+      if (selectedMake === "ford") {
+        modelSelect.innerHTML += '<option value="mustang">Mustang</option>';
+        modelSelect.innerHTML += '<option value="f150">F-150</option>';
+        modelSelect.innerHTML += '<option value="explorer">Explorer</option>';
+        modelSelect.innerHTML += '<option value="ranger">Ranger</option>';
+      } else if (selectedMake === "honda") {
+        modelSelect.innerHTML += '<option value="acura">Acura</option>';
+        modelSelect.innerHTML += '<option value="accord">Accord</option>';
+        modelSelect.innerHTML += '<option value="civic">Civic</option>';
+      } else if (selectedMake === "toyota") {
+        modelSelect.innerHTML += '<option value="prius">Prius</option>';
+        modelSelect.innerHTML += '<option value="corolla">Corolla</option>';
+        modelSelect.innerHTML += '<option value="camry">Camry</option>';
+        modelSelect.innerHTML += '<option value="highlander">Highlander</option>';
+      }
+
+      // Enable or disable the car model dropdown based on the selected make
+      if (selectedMake !== "") {
+        modelSelect.disabled = false;
+      } else {
+        modelSelect.disabled = true;
+      }
+    }
+
+    // Function to submit the form
+    function submitForm() {
+      var makeSelect = document.getElementById("makes");
+      var modelSelect = document.getElementById("models");
+      var genderRadio = document.querySelector('input[name="gender"]:checked');
+      var nameInput = document.getElementById("name");
+      var emailInput = document.getElementById("email");
+      var phoneInput = document.getElementById("phone");
+      var add1Input = document.getElementById("address1");
+      var add2Input = document.getElementById("address2");
+      var cityInput = document.getElementById("city");
+      var stateInput = document.getElementById("state");
+      var zipInput = document.getElementById("zip");
+
+      var make = makeSelect.value;
+      var model = modelSelect.value;
+      var gender = genderRadio ? genderRadio.value : "";
+      var name = nameInput.value;
+      var email = emailInput.value;
+      var phone = phoneInput.value;
+      var address1 = add1Input.value;
+      var address2 = add2Input.value;
+      var city = cityInput.value;
+      var state = stateInput.value;
+      var zip = zipInput.value;
+
+
+      // Display an alert with the submitted data
+      var message = "Name: " + name +"\nGender: " + gender + "\nEmail: " + email + "\nCell Phone: " + phone +"\nAddress1: " + address1 +  "\nAddress2: " + address2 + "\nCity: " + city + "\nState: " + state + "\nZip: " + zip + "\nMake: " + make + "\nModel: " + model;
+      alert("Feedback submitted:\n\n" + message);
+    }
+  </script>
+
+</body>
+
+</html>

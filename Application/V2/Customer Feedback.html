@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Customer Feedback</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+    .image {
+      width: 10%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .head-name {
+      margin-top: 20px;
+      font-size: 40px;
+      font-family: Century Gothic, sans-serif;
+      color: grey;
+    }
+    .submit {
+      padding: 6px 12px;
+      background-color: light grey;
+      color: black;
+      font-size: 12px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+    }
+    body {
+      margin-left: 20px; /* Adjust the value as needed */
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="head-name">Customer Feedback</h1>
+
+  <br>
+  <img class="image" src="customer.jpg" alt="FeedbackImage">
+  <br>
+  <br>
+
+  <!-- Textboxes for name, email, and cell phone number -->
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+
+  <br><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email">
+
+  <br><br>
+
+  <label for="phone">Cell Phone:</label>
+  <input type="tel" id="phone" name="phone">
+
+  <br><br>
+  <!-- Radio buttons for customer review questions -->
+  <label for="question1">How satisfied are you with our service?</label>
+  <br>
+  <label><input type="radio" name="question" value="satisfied"> Satisfied</label>
+  <label><input type="radio" name="question" value="neutral"> Neutral</label>
+  <label><input type="radio" name="question" value="dissatisfied"> Dissatisfied</label>
+
+  <br><br>
+
+  <label for="question2">Would you recommend us to others?</label>
+  <br>
+  <label><input type="radio" name="question2" value="yes"> Yes</label>
+  <label><input type="radio" name="question2" value="no"> No</label>
+
+  <br><br>
+
+  <label for="question3">How likely are you to purchase from us again?</label>
+  <br>
+  <label><input type="radio" name="question3" value="likely"> Likely</label>
+  <label><input type="radio" name="question3" value="unsure"> Unsure</label>
+  <label><input type="radio" name="question3" value="unlikely"> Unlikely</label>
+
+  <br><br>
+  <!-- Textbox for feedback -->
+  <label for="feedback">Feedback:</label>
+  <br>
+  <textarea id="feedback" name="Feedback" rows="6" cols="30"></textarea>
+
+  <br><br>
+
+  <!-- Checkboxes for customer feedback -->
+  <label for="feedback-checkboxes">Select the following items you like about us:</label>
+  <br>
+  <label><input type="checkbox" name="feedback-checkbox1" value="Quality"> Quality</label>
+  <label><input type="checkbox" name="feedback-checkbox1" value="pricing"> Pricing</label>
+  <label><input type="checkbox" name="feedback-checkbox1" value="customer-service"> Customer Service</label>
+
+  <br><br>
+
+  <label for="feedback-checkboxes">Select the following items you dislike about us:</label>
+  <br>
+  <label><input type="checkbox" name="feedback-checkbox2" value="quality"> Quality</label>
+  <label><input type="checkbox" name="feedback-checkbox2" value="pricing"> Pricing</label>
+  <label><input type="checkbox" name="feedback-checkbox2" value="customer-service"> Customer Service</label>
+
+  <br><br>
+
+  <!-- Button to submit the feedback -->
+  <button class="submit" onclick="submitFeedback()">Submit</button>
+  <br>
+  <br>
+
+  <div class="go-back-btn">
+    <a href="main.html">Back to Main Page</a>
+  </div>
+
+<script>
+  function submitFeedback() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var feedback = document.getElementById("feedback").value;
+    
+    // Get selected radio buttons
+    var radioButtons1 = document.getElementsByName("question1");
+    var selectedRadioButton1;
+    for (var i = 0; i < radioButtons1.length; i++) {
+      if (radioButtons1[i].checked) {
+        selectedRadioButton1 = radioButtons1[i].value;
+        break;
+      }
+    }
+
+    var radioButtons2 = document.getElementsByName("question2");
+    var selectedRadioButton2;
+    for (var i = 0; i < radioButtons2.length; i++) {
+      if (radioButtons2[i].checked) {
+        selectedRadioButton2 = radioButtons2[i].value;
+        break;
+      }
+    }
+
+    var radioButtons3 = document.getElementsByName("question3");
+    var selectedRadioButton3;
+    for (var i = 0; i < radioButtons3.length; i++) {
+      if (radioButtons3[i].checked) {
+        selectedRadioButton3 = radioButtons3[i].value;
+        break;
+      }
+    }
+
+    // Get selected checkboxes
+    var checkboxes1 = document.getElementsByName("feedback-checkbox1");
+    var selectedCheckboxes1 = [];
+    for (var i = 0; i < checkboxes1.length; i++) {
+      if (checkboxes1[i].checked) {
+        selectedCheckboxes1.push(checkboxes1[i].value);
+      }
+    }
+
+    var checkboxes2 = document.getElementsByName("feedback-checkbox2");
+    var selectedCheckboxes2 = [];
+    for (var i = 0; i < checkboxes2.length; i++) {
+      if (checkboxes2[i].checked) {
+        selectedCheckboxes2.push(checkboxes2[i].value);
+      }
+    }
+
+    // Display an alert with the submitted data
+    var message =
+      "Name: " + name +
+      "\nEmail: " + email +
+      "\nCell Phone: " + phone +
+      "\nFeedback: " + feedback +
+      "\n\nQuestion 1: " + selectedRadioButton1 +
+      "\nQuestion 2: " + selectedRadioButton2 +
+      "\nQuestion 3: " + selectedRadioButton3 +
+      "\nSelected Checkboxes (Likes): " + selectedCheckboxes1.join(", ") +
+      "\nSelected Checkboxes (Dislikes): " + selectedCheckboxes2.join(", ");
+
+    alert("Feedback submitted:\n\n" + message);
+  }
+</script>
+
+</body>
+
+</html>

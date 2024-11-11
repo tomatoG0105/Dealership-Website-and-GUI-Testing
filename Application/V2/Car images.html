@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dealership Store</title>
+  <style>
+    body {
+      margin-left: -30px;
+    }
+
+    .car-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      max-width: 1500px;
+      margin: 0 auto;
+      height: 1000px;
+    }
+
+    .car-card {
+      flex: 0 0 calc(50% - 20px);
+      max-width: calc(50% - 20px);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .feature-card {
+      flex: 0 0 calc(50% - 20px);
+      max-width: calc(50% - 20px);
+      text-align: start;
+    }
+
+    .car-image {
+      width: 60%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .car-name {
+      margin-top: 8px;
+      font-size: 22px;
+      font-family: Arial, sans-serif;
+      color: black;
+    }
+
+    .car-name-button {
+      padding: 6px 14px;
+      color: white;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      background-color: grey;
+      border: black;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .head-name2 {
+      margin-top: 20px;
+      font-size: 30px;
+      font-family: Century Gothic, sans-serif;
+      color: grey;
+    }
+
+    .go-back-btn {
+      text-align: center;
+      margin-top: 2300px;
+      margin-bottom: 100px;
+    }
+
+    .car-list {
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      list-style-type: disc; /* Set the list style to display bullet points */
+      padding-inline-start: 0;
+      margin-inline-start: 20px; /* Remove default left margin */
+      padding-inline-end: 0px; /* Adjust right padding */
+    }
+
+    .car-list li {
+      margin-bottom: 5px; /* Add some space between the bullet points */
+    }
+  </style>
+</head>
+<body>
+  <h1 class="head-name2">Explore Your Next Vehicle</h1>
+  <br>
+
+  <div class="suggestion-container">
+    <div class="suggestion-label">Car Selection Suggestions:</div>
+    <div>
+      <input type="checkbox" class="suggestion-checkbox" id="checkbox1">
+      <label for="checkbox1">Spacious Interior</label>
+      <input type="checkbox" class="suggestion-checkbox" id="checkbox2">
+      <label for="checkbox2">Off-road capabilities</label>
+      <input type="checkbox" class="suggestion-checkbox" id="checkbox3">
+      <label for="checkbox3">Luxurious interior</label>
+      <input type="checkbox" class="suggestion-checkbox" id="checkbox4">
+      <label for="checkbox4">Fuel-efficient</label>
+     <input type="checkbox" class="suggestion-checkbox" id="checkbox5">
+      <label for="checkbox5">Hybrid powertrain</label>
+     <input type="checkbox" class="suggestion-checkbox" id="checkbox6">
+      <label for="checkbox6">Three-row seating</label>
+    </div>
+ <br><br>
+    <button onclick="suggestCar()">Suggest Car</button>
+<br><br>
+    <textarea class="output-textbox" id="output-text" readonly rows="2" cols="40"></textarea>
+  </div>
+  <br>
+
+    <div>
+      <label for="make-model-input">Looking for other makes/models? Let us know: </label>
+  <br><br>
+     <textarea type="text" id="make-model-input" placeholder="Enter your preferred make/model" rows="2" cols="40"></textarea>
+    </div>
+    <div>
+  <br>
+
+  <br>
+  <div class="car-container">
+    <div class="car-card">
+      <img class="car-image" src="ford_mustang.jpg" alt="Ford Mustang">
+      <h2 class="car-name"><a href="https://www.google.com/search?q=ford+mustang&tbm=isch"><button class="car-name-button">Ford Mustang</button></a></h2>
+   </div>
+
+    <div class="feature-card">
+    <h2 class="car-list"> Main features:</h2>
+      <ul class="car-list">
+        <li>Powerful engine</li>
+        <li>Sporty design</li>
+        <li>Advanced technology</li>
+      </ul>
+    </div>
+
+    <div class="car-card">
+      <img class="car-image" src="ford_f150.jpg" alt="Ford F-150">
+      <h2 class="car-name"><a href="https://www.google.com/search?q=ford+F-150&tbm=isch"><button class="car-name-button">Ford F-150</button></a></h2>
+    </div>
+
+
+    <div class="feature-card">
+    <h2 class="car-list"> Main features:</h2>
+      <ul class="car-list">
+        <li>Robust towing capability</li>
+        <li>Spacious interior</li>
+        <li>Off-road capabilities</li>
+      </ul>
+    </div>
+
+    <div class="car-card">
+      <img class="car-image" src="ford_explorer.jpg" alt="Ford Explorer">
+      <h2 class="car-name"><a href="https://www.google.com/search?q=ford+explorer&tbm=isch"><button class="car-name-button">Ford Explorer</button></a></h2>
+    </div>
+
+
+    <div class="feature-card">
+    <h2 class="car-list"> Main features:</h2>
+      <ul class="car-list">
+        <li>Spacious and comfortable</li>
+        <li>Advanced safety features</li>
+        <li>Off-road capabilities</li>
+      </ul>
+    </div>
+
+    <div class="car-card">
+      <img class="car-image" src="honda_acura.jpg" alt="Honda Acura">
+      <h2 class="car-name"><a href="https://www.google.com/search?q=honda+acura&tbm=isch"><button class="car-name-button">Honda Acura</button></a></h2>
+    </div>
+
+
+    <div class="feature-card">
+    <h2 class="car-list"> Main features:</h2>
+      <ul class="car-list">
+        <li>Luxurious interior</li>
+        <li>Smooth and powerful performance</li>
+        <li>Advanced safety features</li>
+      </ul>
+    </div>
+
+    <div class="car-card">
+      <img class="car-image" src="honda_accord.jpg" alt="Honda Accord">
+      <h2 class="car-name"><a href="https://www.google.com/search?q=honda+accord&tbm=isch"><button class="car-name-button">Honda Accord</button></a></h2>
+    </div>
+
+
+    <div class="feature-card">
+    <h2 class="car-list"> Main features:</h2>
+      <ul class="car-list">
+        <li>Fuel-efficient</li>
+        <li>Comfortable and spacious</li>
+        <li>Advanced safety features</li>
+      </ul>
+    </div>
+
+    <div class="car-card">
+      <img class="car-image" src="honda_civic.jpg" alt="Honda Civic">
+      <h2 class="car-name"><a href="https://www.google.com/search?q=honda+civic&tbm=isch"><button class="car-name-button">Honda Civic</button></a></h2>
+    </div>
+
+
+    <div class="feature-card">
+    <h2 class="car-list"> Main features:</h2>
+      <ul class="car-list">
+        <li>Reliable and fuel-efficient</li>
+        <li>Agile handling</li>
+        <li>Modern design</li>
+      </ul>
+    </div>
+
+    <div class="car-card">
+      <img class="car-image" src="toyota_camry.jpg" alt="Toyota Camry">
+      <h2 class="car-name"><a href="https://www.google.com/search?q=toyota+camry&tbm=isch"><button class="car-name-button">Toyota Camry</button></a></h2>
+    </div>
+
+
+    <div class="feature-card">
+    <h2 class="car-list"> Main features:</h2>
+      <ul class="car-list">
+        <li>Comfortable and spacious</li>
+        <li>Fuel-efficient</li>
+        <li>Advanced safety features</li>
+      </ul>
+    </div>
+
+    <div class="car-card">
+      <img class="car-image" src="toyota_corolla.jpg" alt="Toyota Corolla">
+      <h2 class="car-name"><a href="https://www.google.com/search?q=toyota+corolla&tbm=isch"><button class="car-name-button">Toyota Corolla</button></a></h2>
+
+    <div class="feature-card">
+    <h2 class="car-list"> Main features:</h2>
+      <ul class="car-list">
+        <li>Reliable and fuel-efficient</li>
+        <li>Spacious cabin</li>
+        <li>Modern technology features</li>
+      </ul>
+    </div>
+    </div>
+
+
+
+    <div class="car-card">
+      <img class="car-image" src="toyota_prius.jpg" alt="Toyota Prius">
+      <h2 class="car-name"><a href="https://www.google.com/search?q=toyota+prius&tbm=isch"><button class="car-name-button">Toyota Prius</button></a></h2>
+    </div>
+
+
+    <div class="feature-card">
+    <h2 class="car-list"> Main features:</h2>
+      <ul class="car-list">
+        <li>Hybrid powertrain</li>
+        <li>Excellent fuel economy</li>
+        <li>Eco-friendly</li>
+      </ul>
+    </div>
+
+    <div class="car-card">
+      <img class="car-image" src="toyota_highlander.jpg" alt="Toyota Highlander">
+      <h2 class="car-name"><a href="https://www.google.com/search?q=toyota+highlander&tbm=isch"><button class="car-name-button">Toyota Highlander</button></a></h2>
+
+    <div class="feature-card">
+    <h2 class="car-list"> Main features:</h2>
+      <ul class="car-list">
+        <li>Three-row seating</li>
+        <li>Smooth and comfortable ride</li>
+        <li>Advanced safety features</li>
+      </ul>
+    </div>
+
+    </div>
+
+
+  </div>
+  <div class="go-back-btn">
+    <a href="main.html">Go Back</a>
+  </div>
+
+  <script>
+    function suggestCar() {
+      var checkbox1 = document.getElementById("checkbox1").checked;
+      var checkbox2 = document.getElementById("checkbox2").checked;
+      var checkbox3 = document.getElementById("checkbox3").checked;
+      var checkbox4 = document.getElementById("checkbox4").checked;
+      var checkbox5 = document.getElementById("checkbox5").checked;
+      var checkbox6 = document.getElementById("checkbox6").checked;
+      // Car suggestion logic based on selected checkboxes
+      var suggestion = "";
+
+      if (checkbox1&& !checkbox3 && !checkbox4 && !checkbox5 && !checkbox6) {
+        suggestion += "Ford Mustang/ F-150 / Explorer";
+      } else if (checkbox2 && !checkbox3 && !checkbox4 && !checkbox5 && !checkbox6) {
+        suggestion += "Ford F-150 / Explorer";
+      } else if (!checkbox1 && !checkbox2 && checkbox3 && !checkbox4 && !checkbox5 && !checkbox6) {
+        suggestion += "Honda Acura";
+      } else if (!checkbox1 && !checkbox2 && !checkbox3 && checkbox4 && !checkbox5 && !checkbox6) {
+        suggestion += "Honda Accord/ Civic, Toyota Camry/ Carolla/ Prius";
+      } else if (!checkbox2 && !checkbox3 && !checkbox4 && !checkbox5 && checkbox6) {
+        suggestion += "Toyota Highlander";
+      } else if (!checkbox1 && !checkbox2 && !checkbox3 && checkbox5 && !checkbox6) {
+        suggestion += "Toyota Prius";
+      } else {
+        suggestion += "No specific car suggestion";
+      }
+
+      document.getElementById("output-text").value = suggestion;
+    }
+  </script>
+
+</body>
+</html>
